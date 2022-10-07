@@ -3,6 +3,7 @@ package com.cydeo.model;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 @Getter
 @Setter
@@ -11,6 +12,15 @@ import java.time.LocalDate;
 @ToString
 public class Employee {
 
+            //  @NotNull --> Field shouldn't be null
+            //  @NotEmpty -->   Field shouldn't be ""
+            //  @NotBlank -->   Field shouldn't be "   "
+
+    //  @NotNull --> @NotNull
+    //  @NotEmpty -->   @NotEmpty+@NotNull
+    //  @NotBlank -->   @NotBlank+@NotEmpty+@NotNull
+
+    @NotBlank
     private String firstName;
     private String lastName;
 
