@@ -24,32 +24,31 @@ public class EmployeeController {
     }
 
     @GetMapping("/register")
-    public String createEmployee(Model model){
+    public String createEmployee(Model model) {
 
         model.addAttribute("employee", new Employee());
-        model.addAttribute("stateList", DataGenerator.getAllState());
+        model.addAttribute("stateList", DataGenerator.getAllStates());
 
         return "employee/employee-create";
 
     }
 
     @PostMapping("/insert")
-    public String insertEmployee(@ModelAttribute ("employee") @Valid Employee employee, BindingResult bindingResult, Model model){
+    public String insertEmployee(@ModelAttribute("employee") @Valid Employee employee, BindingResult bindingResult, Model model) {
 
-        if(bindingResult.hasErrors()){
-            model.addAttribute("stateList", DataGenerator.getAllState());
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("stateList", DataGenerator.getAllStates());
             return "employee/employee-create";
         }
 
-    employeeService.saveEmployee(employee);
-
-        return "redirect:/employee/list";
+        employeeService.saveEmployee(employee);
+        return "redirect:/employee/list";   // With redirect we are using endpoints
     }
 
     @GetMapping("/list")
-    public String listEmployee(Model model){
-        model.addAttribute("employeeList", employeeService.readAllEmployee());
-        return "employee/employee-list";
+    public String listEmployees(Model model) {
+        model.addAttribute("employeeList", employeeService.readAllEmployees());
+        return "employee/employee-list";   // Without redirect we are using html file paths
     }
 
 }

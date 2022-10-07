@@ -9,13 +9,14 @@ import java.util.List;
 @Component
 public class EmployeeService {
 
-    public List<Employee> employeeList=new ArrayList<>();
+    public static List<Employee> employeeList = new ArrayList<>();
 
-    public void saveEmployee(Employee employee){
+    public void saveEmployee(Employee employee) {
         employeeList.add(employee);
     }
 
-    public List<Employee> readAllEmployee(){
+    public List<Employee> readAllEmployees() {
         return employeeList;
     }
+
 }
