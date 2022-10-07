@@ -1,6 +1,7 @@
 package com.cydeo.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 @Getter
@@ -12,6 +13,9 @@ public class Employee {
 
     private String firstName;
     private String lastName;
+
+    //Thymeleaf accept yyyy-MM-dd but LocalDate accepts mm-dd-yy
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
     private String email;
     private String password;
