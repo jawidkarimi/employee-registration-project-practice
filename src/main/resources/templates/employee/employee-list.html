@@ -14,9 +14,8 @@
 
 <div class="container">
     <div class="d-flex justify-content-center align-items-center row">
-
         <h2 class="p-5">
-                Employee List
+            Employee List
         </h2>
         <table class="table table-striped">
             <thead>
@@ -31,21 +30,17 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="theEmployee:${employeeList}">
+            <tr th:each="theEmployee : ${employeeList}">
                 <td th:text="${theEmployee.firstName}"></td>
                 <td th:text="${theEmployee.lastName}"></td>
                 <td th:text="${#execInfo.getNow().get(1) - theEmployee.birthday.getYear()}"></td>
-                <td th:text="${theEmployee.address+' '+ theEmployee.address2}"></td>
+                <td th:text="${theEmployee.address + ' ' + theEmployee.address2}"></td>
                 <td th:text="${theEmployee.city}"></td>
                 <td th:text="${theEmployee.state}"></td>
                 <td th:text="${theEmployee.zipCode}"></td>
-
             </tr>
             </tbody>
         </table>
-
-
-            </div>
     </div>
 </div>
 
